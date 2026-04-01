@@ -116,7 +116,7 @@ li p {
     display: inline;
 }
 
-ul li::before {
+ul li:not(.task-list-item)::before {
     content: "•";
     color: var(--color-text-muted) !important;
     font-size: 1.1em;
@@ -125,6 +125,17 @@ ul li::before {
     display: inline-block;
     width: 0.9rem;
     vertical-align: baseline;
+}
+
+/* Task list checkboxes */
+.task-list-item {
+    padding-left: 0;
+}
+
+.task-list-item input[type="checkbox"] {
+    margin-left: -1.75rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
 }
 
 /* ==========================================================================
