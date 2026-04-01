@@ -116,7 +116,7 @@ li p {
     display: inline;
 }
 
-ul li:not(.task-list-item)::before {
+ul li:not(.task-list-item):not(:has(> input[type="checkbox"]))::before {
     content: "•";
     color: var(--color-text-muted) !important;
     font-size: 1.1em;
@@ -128,11 +128,15 @@ ul li:not(.task-list-item)::before {
 }
 
 /* Task list checkboxes */
-.task-list-item {
+.task-list-item,
+li:has(> input[type="checkbox"]) {
+    list-style: none;
     padding-left: 0;
 }
 
-.task-list-item input[type="checkbox"] {
+.task-list-item input[type="checkbox"],
+.task-list-item-checkbox,
+li:has(> input[type="checkbox"]) > input[type="checkbox"] {
     margin-left: -1.75rem;
     margin-right: 0.4rem;
     vertical-align: middle;
